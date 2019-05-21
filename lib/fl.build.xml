@@ -169,7 +169,7 @@
             <arg value="${source.code.lines.file}" />
         </java>
         <exec dir="." executable="python" failonerror="true">
-            <arg line="../lib/statement-suspiciousness-to-source_code_line-suspiciousness.py --stmt-susps-file ${tarantula.stmt.ranking.file} --source-code-lines-file ${source.code.lines.file} --output-file ${gzoltar.report.dir}/sfl/txt/line.tarantula.ranking.csv " />
+            <arg line="../lib/statement-suspiciousness-to-source_code_line-suspiciousness.py --stmt-susps-file ${tarantula.stmt.ranking.file} --source-code-lines-file ${source.code.lines.file} --output-file ${tarantula.line.ranking.file} " />
         </exec>
         <fail message="${tarantula.line.ranking.file} not found!"><condition><not><available file="${tarantula.line.ranking.file}"/></not></condition></fail>
     </target>
