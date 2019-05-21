@@ -1,5 +1,6 @@
 <project name="bug1" default="package" basedir=".">
     <import file="maven-build.xml"/>
+    <import file="../lib/fl.build.xml"/>
 
     <path id="build.test.classpath">
         <pathelement location="${easymock.jar}" />

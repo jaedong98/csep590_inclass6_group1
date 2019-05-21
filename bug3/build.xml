@@ -2,22 +2,28 @@
     <property file="${basedir}/build.properties"/>
     <property file="${basedir}/default.properties"/>
 
+    <property name="maven.build.dir" value="${build.home}"/>
+    <property name="maven.build.outputDir" value="${build.home}/classes"/>
+    <property name="maven.build.testOutputDir" value="${build.home}/tests"/>
+    <property name="maven.build.srcDir.0" value="src/java"/>
+    <import file="../lib/fl.build.xml"/>
+
     <path id="compile.classpath">
         <pathelement location="${build.home}/classes"/>
     </path>
 
-    <path id="test.classpath">
+    <path id="build.test.classpath">
         <pathelement location="${build.home}/classes"/>
         <pathelement location="${build.home}/tests"/>
         <pathelement location="../lib/junit-4.11.jar"/>
     </path>
 <!-- ####################################################################### -->
-    <target name="test" depends="compile.tests" description="Run all tests">
+    <target name="test" depends="compile-tests" description="Run all tests">
         <junit printSummary="yes" haltonfailure="true" fork="true" dir=".">
             <sysproperty key="basedir" value="."/>
             <formatter type="brief" usefile="false"/>
             <classpath>
-                <path refid="test.classpath"/>
+                <path refid="build.test.classpath"/>
             </classpath>
             <batchtest unless="test">
                 <fileset dir="src/test">
@@ -47,7 +53,7 @@
         </copy>
     </target>
 
-    <target name="compile.tests" depends="compile"
+    <target name="compile-tests" depends="compile"
                     description="Compile unit test cases">
         <javac  srcdir="${test.home}"
                 destdir="${build.home}/tests"
@@ -57,7 +63,7 @@
                 source="${compile.source}"
                 optimize="${compile.optimize}"
                 nowarn="true">
-            <classpath refid="test.classpath"/>
+            <classpath refid="build.test.classpath"/>
         </javac>
         <copy todir="${build.home}/tests" filtering="on">
             <fileset dir="${test.home}" excludes="**/*.java"/>
