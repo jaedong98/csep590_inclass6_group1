@@ -3,6 +3,8 @@
 
     <path id="build.test.classpath">
         <pathelement location="${easymock.jar}" />
+        <pathelement location="../lib/junit-4.11.jar"/>
+        <pathelement location="../lib/easymock.jar"/>
     </path>
 
     <path id="test.classpath">                                                                
