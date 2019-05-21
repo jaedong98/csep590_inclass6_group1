@@ -78,6 +78,7 @@
         <delete dir="${dir.cov.pass}"/>
         <delete file="cobertura.ser"/>
         <delete file="cobertura.init"/>
+        <delete dir="${basedir}/sfl"/>
     </target>
 
     <target name="init" description="Initialize and evaluate conditionals">

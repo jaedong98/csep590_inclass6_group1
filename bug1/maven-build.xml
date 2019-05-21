@@ -60,6 +60,7 @@
     <delete dir=".instrumented"/>
     <delete file="cobertura.init"/>
     <delete file="cobertura.ser"/>
+    <delete dir="${basedir}/sfl"/>
   </target>
 
   <!-- ====================================================================== -->
