@@ -1,7 +1,7 @@
 <project name="Fault-localization" default="fault-localization" xmlns:gzoltar="antlib:com.gzoltar.ant">
 
     <property name="gzoltar.version" value="v1.7.2" />
-    <property name="gzoltar.report.dir" location="${maven.build.dir}" />
+    <property name="gzoltar.report.dir" location="." />
     <property name="gzoltar.exec.file" location="${maven.build.dir}/gzoltar.exec" />
     <property name="gzoltar-ant.jar" value="../lib/gzoltarant-${gzoltar.version}.jar" />
     <property name="gzoltar-cli.jar" value="../lib/gzoltarcli-${gzoltar.version}.jar" />
