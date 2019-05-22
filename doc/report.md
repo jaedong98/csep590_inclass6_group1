@@ -38,3 +38,20 @@ index 72da176..385925a 100644
          assertFalse("isNumber(String) failed", NumberUtils.isNumber(val));
      }
 ```
+
+### Bug2
+
+```bash
+diff --git a/bug2/src/main/java/org/apache/commons/lang3/SystemUtils.java b/bug2/src/main/java/org/apache/commons/lang3/SystemUtils.java
+index 0c73f42..2116f7c 100644
+--- a/bug2/src/main/java/org/apache/commons/lang3/SystemUtils.java
++++ b/bug2/src/main/java/org/apache/commons/lang3/SystemUtils.java
+@@ -1669,7 +1669,7 @@ public class SystemUtils {
+      *
+      * @return the version, for example 131 for Java 1.3.1
+      */
+-    static float toJavaVersionInt(String version) {
++    static int toJavaVersionInt(String version) {
+         return toVersionInt(toJavaVersionIntArray(version, JAVA_VERSION_TRIM_SIZE));
+     }
+```
