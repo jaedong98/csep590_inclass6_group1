@@ -7,7 +7,6 @@
 ### Bug1
 
 ```bash
-~/Documents/UW/csep590_sp19/debugging/bug1 [master] $ git diff
 diff --git a/bug1/src/main/java/org/apache/commons/lang3/math/NumberUtils.java b/bug1/src/main/java/org/apache/commons/lang3/math/NumberUtils.java
 index 4a1d845..d9b3c6d 100644
 --- a/bug1/src/main/java/org/apache/commons/lang3/math/NumberUtils.java
@@ -30,7 +29,6 @@ index 72da176..385925a 100644
          val = "2.";
          assertTrue("isNumber(String) failed", NumberUtils.isNumber(val));
 -        val = "1.1L";
-+        
 +    }
 +
 +    public void testMinimizeTest() {
@@ -54,4 +52,24 @@ index 0c73f42..2116f7c 100644
 +    static int toJavaVersionInt(String version) {
          return toVersionInt(toJavaVersionIntArray(version, JAVA_VERSION_TRIM_SIZE));
      }
+```
+
+### Bug3
+
+```bash
+diff --git a/bug3/src/java/org/apache/commons/lang/math/NumberUtils.java b/bug3/src/java/org/apache/commons/lang/math/NumberUtils.java
+index c0f06a4..ec5a44e 100644
+--- a/bug3/src/java/org/apache/commons/lang/math/NumberUtils.java
++++ b/bug3/src/java/org/apache/commons/lang/math/NumberUtils.java
+@@ -451,8 +451,8 @@ public class NumberUtils {
+                 case 'L' :
+                     if (dec == null
+                         && exp == null
+-                        && isDigits(numeric.substring(1))
+-                        && (numeric.charAt(0) == '-' || Character.isDigit(numeric.charAt(0)))) {
++                        && ((isDigits(numeric.substring(1))
++                        && numeric.charAt(0) == '-') || Character.isDigit(numeric.charAt(0)))) {
+                         try {
+                             return createLong(numeric);
+                         } catch (NumberFormatException nfe) {
 ```
