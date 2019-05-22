@@ -176,7 +176,11 @@ public class TestClass4 extends TestCase {
         assertTrue("isNumber(String)/createNumber(String) 24 Neg failed", !checkCreateNumber(val));
         val = "2.";
         assertTrue("isNumber(String) failed", NumberUtils.isNumber(val));
-        val = "1.1L";
+        
+    }
+
+    public void testMinimizeTest() {
+        String val = "1.1L";
         assertFalse("isNumber(String) failed", NumberUtils.isNumber(val));
     }
     
